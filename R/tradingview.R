@@ -51,4 +51,11 @@ get_sp500 <- function() {
 }
 
 
+#' Return all the ticker from tradingview with performance data
+#' @export
+get_performance_table <- function() {
+  adat <- get_tradingview_data_from_json_string('{"filter":[{"left":"market_cap_basic","operation":"nempty"},{"left":"type","operation":"in_range","right":["stock","dr","fund"]},{"left":"subtype","operation":"in_range","right":["common","","etf","unit","mutual","money","reit","trust"]},{"left":"exchange","operation":"in_range","right":["AMEX","NASDAQ","NYSE"]}],"options":{"lang":"en"},"symbols":{"query":{"types":[]},"tickers":[]},"columns":["logoid","name","change|1","change|5","change|15","change|60","change|240","change","Perf.W","Perf.1M","Perf.3M","Perf.6M","Perf.YTD","Perf.Y","beta_1_year","Volatility.D","RSI","number_of_employees","market_cap_basic","sector","industry","Low.6M","High.All","Low.All","price_52_week_high","price_earnings_ttm","close","description","name","type","subtype","update_mode","RSI","RSI[1]","pricescale","minmov","fractional","minmove2"],"sort":{"sortBy":"market_cap_basic","sortOrder":"desc"},"range":[0,450]}')
+  return(adat)
+}
+
 

@@ -2,17 +2,17 @@
 % Please edit documentation in R/slack_report.R
 \name{get_info_plot}
 \alias{get_info_plot}
-\title{Get info of a ticker from tradingview}
+\title{Get info plot}
 \usage{
-get_info_plot(my_ticker, show_date)
+get_info_plot(my_ticker)
 }
 \arguments{
-\item{show_date}{start date of the plot}
-
 \item{Ticker}{The id of the company}
 
 \item{my_json_string}{json string from inspect view at the bottom}
+
+\item{show_date}{start date of the plot}
 }
 \description{
-Get info of a ticker from tradingview
+Get info plot
 }
