@@ -4,7 +4,10 @@
 \alias{get_sp500}
 \title{Return the S&P500 tickers}
 \usage{
-get_sp500()
+get_sp500(just_ticker = T)
+}
+\arguments{
+\item{just_ticker}{if it is True, it will return justt with the ticker ids}
 }
 \description{
 Return the S&P500 tickers

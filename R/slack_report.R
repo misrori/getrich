@@ -26,7 +26,7 @@ get_summary_of_ticker <- function(ticker){
 #' @import TTR
 #' @import pracma
 #' @import plotly
-get_info_plot  <- function(my_ticker) {
+get_info_plot  <- function(my_ticker, show_date) {
   my_info <- get_summary_of_ticker(my_ticker)
   show_date <- as.Date(show_date)-365
   t <- get_one_ticker(ticker = my_ticker, start_date = show_date, end_date = Sys.Date())
@@ -105,5 +105,4 @@ get_ggplot_of_ticker_to_slack <- function(ticker, slack_token, slack_chanel_id) 
                  token=slack_token, channels=slack_chanel_id))
   file.remove(paste0(getwd(), '/', ticker,'.png'))
 }
-
 
