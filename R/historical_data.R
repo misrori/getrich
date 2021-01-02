@@ -44,7 +44,7 @@ get_one_ticker  <- function(ticker, start_date = "1900-01-01", end_date = Sys.Da
 
   for (simple_mas in mas) {
     if (nrow(adatom)<=simple_mas) {
-      adatom[[paste0('ma_', simple_mas, '_value')]] <- NA
+      adatom[[paste0('ma_', simple_mas, '_value')]] <- 0
       # t_mas <- nrow(adatom)-1
       # adatom[[paste0('ma_', simple_mas, '_value')]] <- movavg(adatom[['close']], t_mas, type="s")
       # if (calc_diff==T) {
@@ -67,7 +67,7 @@ get_one_ticker  <- function(ticker, start_date = "1900-01-01", end_date = Sys.Da
 
   for (exp_mas in emas) {
     if (nrow(adatom)<=exp_mas) {
-      adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- NA
+      adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- 0
       # t_mas <- nrow(adatom)-1
       #
       # adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- movavg(adatom[['close']], t_mas, type="e")
