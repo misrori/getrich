@@ -52,14 +52,16 @@ get_one_ticker  <- function(ticker, start_date = "1900-01-01", end_date = Sys.Da
           adatom[[paste0('ma_', simple_mas, '_value')]] <- NULL
         }
       }
-    }
-    adatom[[paste0('ma_', simple_mas, '_value')]] <- movavg(adatom[['close']], simple_mas, type="s")
-    if (calc_diff==T) {
-      adatom[[paste0('diff_',simple_mas,'_ma_value')]] <-  (( adatom[["close"]]  /adatom[[paste0('ma_', simple_mas, '_value')]] )-1)*100
-      if (keepma==F) {
-        adatom[[paste0('ma_', simple_mas, '_value')]] <- NULL
+    }else{
+      adatom[[paste0('ma_', simple_mas, '_value')]] <- movavg(adatom[['close']], simple_mas, type="s")
+      if (calc_diff==T) {
+        adatom[[paste0('diff_',simple_mas,'_ma_value')]] <-  (( adatom[["close"]]  /adatom[[paste0('ma_', simple_mas, '_value')]] )-1)*100
+        if (keepma==F) {
+          adatom[[paste0('ma_', simple_mas, '_value')]] <- NULL
+        }
       }
     }
+
   }
 
   for (exp_mas in emas) {
@@ -73,12 +75,13 @@ get_one_ticker  <- function(ticker, start_date = "1900-01-01", end_date = Sys.Da
           adatom[[paste0('ma_', exp_mas, '_exp_value')]]<- NULL
         }
       }
-    }
-    adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- movavg(adatom[['close']], exp_mas, type="e")
-    if (calc_diff==T) {
-      adatom[[paste0('diff_',exp_mas,'_exp_ma_value')]] <-  (( adatom[["close"]]  / adatom[[paste0('ma_', exp_mas, '_exp_value')]] )-1)*100
-      if (keepema==F) {
-        adatom[[paste0('ma_', exp_mas, '_exp_value')]]<- NULL
+    }else{
+      adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- movavg(adatom[['close']], exp_mas, type="e")
+      if (calc_diff==T) {
+        adatom[[paste0('diff_',exp_mas,'_exp_ma_value')]] <-  (( adatom[["close"]]  / adatom[[paste0('ma_', exp_mas, '_exp_value')]] )-1)*100
+        if (keepema==F) {
+          adatom[[paste0('ma_', exp_mas, '_exp_value')]]<- NULL
+        }
       }
     }
   }
