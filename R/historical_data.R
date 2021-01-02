@@ -76,7 +76,7 @@ get_one_ticker  <- function(ticker, start_date = "1900-01-01", end_date = Sys.Da
       #   if (keepema==F) {
       #     adatom[[paste0('ma_', exp_mas, '_exp_value')]]<- NULL
       #   }
-      }
+      #}
     }else{
       adatom[[paste0('ma_', exp_mas, '_exp_value')]] <- movavg(adatom[['close']], exp_mas, type="e")
       if (calc_diff==T) {
